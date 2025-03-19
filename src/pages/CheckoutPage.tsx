@@ -19,28 +19,28 @@ import Footer from '@/components/Footer';
 
 const shippingSchema = z.object({
   firstName: z.string().min(2, {
-    message: "First name must be at least 2 characters.",
+    message: "Имя должно содержать не менее 2 символов.",
   }),
   lastName: z.string().min(2, {
-    message: "Last name must be at least 2 characters.",
+    message: "Фамилия должна содержать не менее 2 символов.",
   }),
   address: z.string().min(5, {
-    message: "Address must be at least 5 characters.",
+    message: "Адрес должен содержать не менее 5 символов.",
   }),
   city: z.string().min(2, {
-    message: "City must be at least 2 characters.",
+    message: "Город должен содержать не менее 2 символов.",
   }),
   state: z.string().min(2, {
-    message: "State must be at least 2 characters.",
+    message: "Область/край должны содержать не менее 2 символов.",
   }),
   zipCode: z.string().min(5, {
-    message: "ZIP code must be at least 5 characters.",
+    message: "Почтовый индекс должен содержать не менее 5 символов.",
   }),
   country: z.string().min(2, {
-    message: "Country must be at least 2 characters.",
+    message: "Страна должна содержать не менее 2 символов.",
   }),
   phone: z.string().min(10, {
-    message: "Phone number must be at least 10 characters.",
+    message: "Номер телефона должен содержать не менее 10 символов.",
   }),
 });
 
@@ -60,7 +60,7 @@ const CheckoutPage = () => {
       city: "",
       state: "",
       zipCode: "",
-      country: "US",
+      country: "RU",
       phone: "",
     },
   });
@@ -93,7 +93,7 @@ const CheckoutPage = () => {
       clearCart();
       
       // Show success message
-      showSuccess("Your order has been placed successfully!");
+      showSuccess("Ваш заказ успешно оформлен!");
       
       // Redirect to order confirmation
       navigate('/order-confirmation');
@@ -110,20 +110,20 @@ const CheckoutPage = () => {
       <Header />
       <main className="pt-20 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-3xl font-medium mb-8">Checkout</h1>
+          <h1 className="text-3xl font-medium mb-8">Оформление заказа</h1>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
               <Tabs value={activeTab} onValueChange={setActiveTab}>
                 <TabsList className="grid grid-cols-2 mb-8">
-                  <TabsTrigger value="shipping">Shipping</TabsTrigger>
+                  <TabsTrigger value="shipping">Доставка</TabsTrigger>
                   <TabsTrigger value="payment" disabled={activeTab !== "payment"}>
-                    Payment
+                    Оплата
                   </TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="shipping" className="bg-white rounded-lg p-6 shadow-sm">
-                  <h2 className="text-xl font-medium mb-6">Shipping Information</h2>
+                  <h2 className="text-xl font-medium mb-6">Информация о доставке</h2>
                   
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmitShipping)} className="space-y-6">
@@ -133,9 +133,9 @@ const CheckoutPage = () => {
                           name="firstName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>First Name</FormLabel>
+                              <FormLabel>Имя</FormLabel>
                               <FormControl>
-                                <Input placeholder="John" {...field} />
+                                <Input placeholder="Иван" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -147,9 +147,9 @@ const CheckoutPage = () => {
                           name="lastName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Last Name</FormLabel>
+                              <FormLabel>Фамилия</FormLabel>
                               <FormControl>
-                                <Input placeholder="Doe" {...field} />
+                                <Input placeholder="Иванов" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -162,9 +162,9 @@ const CheckoutPage = () => {
                         name="address"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Address</FormLabel>
+                            <FormLabel>Адрес</FormLabel>
                             <FormControl>
-                              <Input placeholder="123 Main St" {...field} />
+                              <Input placeholder="ул. Ленина, д. 123" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -177,9 +177,9 @@ const CheckoutPage = () => {
                           name="city"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>City</FormLabel>
+                              <FormLabel>Город</FormLabel>
                               <FormControl>
-                                <Input placeholder="New York" {...field} />
+                                <Input placeholder="Москва" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -191,9 +191,9 @@ const CheckoutPage = () => {
                           name="state"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>State/Province</FormLabel>
+                              <FormLabel>Область/Край</FormLabel>
                               <FormControl>
-                                <Input placeholder="NY" {...field} />
+                                <Input placeholder="Московская область" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -207,9 +207,9 @@ const CheckoutPage = () => {
                           name="zipCode"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>ZIP/Postal Code</FormLabel>
+                              <FormLabel>Почтовый индекс</FormLabel>
                               <FormControl>
-                                <Input placeholder="10001" {...field} />
+                                <Input placeholder="123456" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -221,21 +221,21 @@ const CheckoutPage = () => {
                           name="country"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Country</FormLabel>
+                              <FormLabel>Страна</FormLabel>
                               <Select 
                                 onValueChange={field.onChange} 
                                 defaultValue={field.value}
                               >
                                 <FormControl>
                                   <SelectTrigger>
-                                    <SelectValue placeholder="Select a country" />
+                                    <SelectValue placeholder="Выберите страну" />
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent>
-                                  <SelectItem value="US">United States</SelectItem>
-                                  <SelectItem value="CA">Canada</SelectItem>
-                                  <SelectItem value="UK">United Kingdom</SelectItem>
-                                  <SelectItem value="AU">Australia</SelectItem>
+                                  <SelectItem value="RU">Россия</SelectItem>
+                                  <SelectItem value="BY">Беларусь</SelectItem>
+                                  <SelectItem value="KZ">Казахстан</SelectItem>
+                                  <SelectItem value="UA">Украина</SelectItem>
                                 </SelectContent>
                               </Select>
                               <FormMessage />
@@ -249,9 +249,9 @@ const CheckoutPage = () => {
                         name="phone"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Phone Number</FormLabel>
+                            <FormLabel>Номер телефона</FormLabel>
                             <FormControl>
-                              <Input placeholder="(123) 456-7890" {...field} />
+                              <Input placeholder="+7 (123) 456-7890" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -259,14 +259,14 @@ const CheckoutPage = () => {
                       />
                       
                       <Button type="submit" className="w-full">
-                        Continue to Payment
+                        Перейти к оплате
                       </Button>
                     </form>
                   </Form>
                 </TabsContent>
                 
                 <TabsContent value="payment" className="bg-white rounded-lg p-6 shadow-sm">
-                  <h2 className="text-xl font-medium mb-6">Payment Information</h2>
+                  <h2 className="text-xl font-medium mb-6">Информация об оплате</h2>
                   <PaymentForm onSubmit={handlePayment} isProcessing={isProcessingPayment} />
                 </TabsContent>
               </Tabs>
@@ -274,7 +274,7 @@ const CheckoutPage = () => {
             
             <div>
               <div className="bg-gray-50 rounded-lg p-6 shadow-sm">
-                <h2 className="text-lg font-medium mb-4">Order Summary</h2>
+                <h2 className="text-lg font-medium mb-4">Сводка заказа</h2>
                 
                 <div className="space-y-4 mb-6">
                   {cartItems.map(item => (
@@ -289,7 +289,7 @@ const CheckoutPage = () => {
                         </div>
                         <div>
                           <h3 className="text-sm font-medium">{item.product.name}</h3>
-                          <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
+                          <p className="text-sm text-gray-500">Кол-во: {item.quantity}</p>
                         </div>
                       </div>
                       <p className="text-sm font-medium">
@@ -303,24 +303,24 @@ const CheckoutPage = () => {
                 
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <p>Subtotal</p>
+                    <p>Промежуточный итог</p>
                     <p>{formatCurrency(subtotal)}</p>
                   </div>
                   
                   <div className="flex justify-between text-sm">
-                    <p>Shipping</p>
+                    <p>Доставка</p>
                     <p>{formatCurrency(shipping)}</p>
                   </div>
                   
                   <div className="flex justify-between text-sm">
-                    <p>Tax</p>
+                    <p>Налог</p>
                     <p>{formatCurrency(tax)}</p>
                   </div>
                   
                   <Separator className="my-2" />
                   
                   <div className="flex justify-between text-base font-semibold">
-                    <p>Total</p>
+                    <p>Итого</p>
                     <p>{formatCurrency(total)}</p>
                   </div>
                 </div>

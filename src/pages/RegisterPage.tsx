@@ -13,17 +13,17 @@ import Footer from '@/components/Footer';
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "Имя должно содержать не менее 2 символов.",
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Пожалуйста, введите действительный адрес электронной почты.",
   }),
   password: z.string().min(6, {
-    message: "Password must be at least 6 characters.",
+    message: "Пароль должен содержать не менее 6 символов.",
   }),
   confirmPassword: z.string(),
 }).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
+  message: "Пароли не совпадают",
   path: ["confirmPassword"],
 });
 
@@ -63,8 +63,8 @@ const RegisterPage = () => {
       <main className="pt-20 min-h-screen flex items-center justify-center">
         <div className="max-w-md w-full mx-auto px-4 py-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-medium">Create an Account</h1>
-            <p className="text-gray-600 mt-2">Sign up to get started</p>
+            <h1 className="text-3xl font-medium">Создать аккаунт</h1>
+            <p className="text-gray-600 mt-2">Зарегистрируйтесь, чтобы начать</p>
           </div>
           
           <Form {...form}>
@@ -74,9 +74,9 @@ const RegisterPage = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Full Name</FormLabel>
+                    <FormLabel>Полное имя</FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input placeholder="Иван Иванов" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -88,9 +88,9 @@ const RegisterPage = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Электронная почта</FormLabel>
                     <FormControl>
-                      <Input placeholder="you@example.com" {...field} />
+                      <Input placeholder="вы@пример.ру" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -102,7 +102,7 @@ const RegisterPage = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Пароль</FormLabel>
                     <FormControl>
                       <Input type="password" placeholder="••••••" {...field} />
                     </FormControl>
@@ -116,7 +116,7 @@ const RegisterPage = () => {
                 name="confirmPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Confirm Password</FormLabel>
+                    <FormLabel>Подтвердите пароль</FormLabel>
                     <FormControl>
                       <Input type="password" placeholder="••••••" {...field} />
                     </FormControl>
@@ -126,29 +126,29 @@ const RegisterPage = () => {
               />
               
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Creating account..." : "Create Account"}
+                {isLoading ? "Создание аккаунта..." : "Создать аккаунт"}
               </Button>
             </form>
           </Form>
           
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
-              Already have an account?{" "}
+              Уже есть аккаунт?{" "}
               <Link to="/login" className="text-black font-medium hover:underline">
-                Sign in
+                Войти
               </Link>
             </p>
           </div>
           
           <div className="mt-6 text-center text-sm text-gray-500">
             <p>
-              By signing up, you agree to our{" "}
+              Регистрируясь, вы соглашаетесь с нашими{" "}
               <Link to="/terms" className="underline">
-                Terms of Service
+                Условиями использования
               </Link>{" "}
-              and{" "}
+              и{" "}
               <Link to="/privacy" className="underline">
-                Privacy Policy
+                Политикой конфиденциальности
               </Link>
               .
             </p>

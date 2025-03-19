@@ -26,7 +26,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
               to={viewAllLink}
               className="flex items-center text-sm font-medium text-black hover:underline"
             >
-              View All
+              Посмотреть все
               <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           )}

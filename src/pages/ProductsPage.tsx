@@ -62,11 +62,11 @@ const ProductsPage = () => {
           <div className="mb-8">
             <h1 className="text-3xl font-medium mb-2">
               {categoryParam 
-                ? `${categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1)} Products`
-                : 'All Products'}
+                ? `${categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1)} Товары`
+                : 'Все товары'}
             </h1>
             <p className="text-gray-500">
-              {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'} available
+              {filteredProducts.length} {filteredProducts.length === 1 ? 'товар' : filteredProducts.length >= 2 && filteredProducts.length <= 4 ? 'товара' : 'товаров'} доступно
             </p>
           </div>
           
@@ -90,8 +90,8 @@ const ProductsPage = () => {
                 </div>
               ) : (
                 <div className="text-center py-12">
-                  <h3 className="text-lg font-medium mb-2">No products found</h3>
-                  <p className="text-gray-500">Try adjusting your filters or search terms.</p>
+                  <h3 className="text-lg font-medium mb-2">Товары не найдены</h3>
+                  <p className="text-gray-500">Попробуйте изменить параметры фильтрации или условия поиска.</p>
                 </div>
               )}
             </div>

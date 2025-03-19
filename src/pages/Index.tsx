@@ -29,17 +29,17 @@ const Index = () => {
           
           <div className="container relative z-10 px-4 mx-auto text-center text-white">
             <h1 className="text-4xl md:text-6xl font-medium mb-6 animate-slide-in">
-              Elegance in Simplicity
+              Элегантность в простоте
             </h1>
             <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90 animate-slide-in" style={{ animationDelay: '100ms' }}>
-              Discover our collection of minimalist products designed to enhance your everyday experience.
+              Откройте для себя нашу коллекцию минималистичных товаров, созданных для улучшения вашей повседневной жизни.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in" style={{ animationDelay: '200ms' }}>
               <Button asChild size="lg" className="bg-white text-black hover:bg-gray-100">
-                <Link to="/products">Shop Now</Link>
+                <Link to="/products">Купить сейчас</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                <Link to="/about">Learn More</Link>
+                <Link to="/about">Узнать больше</Link>
               </Button>
             </div>
           </div>
@@ -48,24 +48,29 @@ const Index = () => {
         {/* Categories section */}
         <section className="py-16 bg-white">
           <div className="container px-4 mx-auto">
-            <h2 className="text-2xl font-medium mb-8 text-center">Shop by Category</h2>
+            <h2 className="text-2xl font-medium mb-8 text-center">Магазин по категориям</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-              {['electronics', 'furniture', 'lighting', 'home decor'].map((category) => (
+              {[
+                {name: 'Электроника', key: 'electronics'},
+                {name: 'Мебель', key: 'furniture'},
+                {name: 'Освещение', key: 'lighting'},
+                {name: 'Декор для дома', key: 'home decor'}
+              ].map((category) => (
                 <Link 
-                  key={category}
-                  to={`/products?category=${category}`}
+                  key={category.key}
+                  to={`/products?category=${category.key}`}
                   className="group relative overflow-hidden rounded-lg aspect-square bg-gray-100 transition-transform hover:scale-[1.02]"
                 >
                   <img
-                    src={`https://source.unsplash.com/random/600x600?${category}`}
-                    alt={category}
+                    src={`https://source.unsplash.com/random/600x600?${category.key}`}
+                    alt={category.name}
                     className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/30 transition-opacity group-hover:bg-black/40">
                     <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-white text-xl font-medium capitalize">{category.replace('-', ' ')}</h3>
+                      <h3 className="text-white text-xl font-medium capitalize">{category.name}</h3>
                       <p className="text-white/80 text-sm mt-1 flex items-center">
-                        Shop Now
+                        Купить сейчас
                         <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </p>
                     </div>
@@ -78,14 +83,14 @@ const Index = () => {
 
         {/* Featured products */}
         <FeaturedProducts 
-          title="Featured Products" 
+          title="Рекомендуемые товары" 
           products={featuredProducts} 
           viewAllLink="/products" 
         />
 
         {/* New arrivals */}
         <FeaturedProducts 
-          title="New Arrivals" 
+          title="Новые поступления" 
           products={newArrivals} 
           viewAllLink="/products" 
         />
@@ -93,12 +98,12 @@ const Index = () => {
         {/* CTA section */}
         <section className="py-20 bg-gray-50">
           <div className="container px-4 mx-auto text-center">
-            <h2 className="text-3xl font-medium mb-4">Ready to transform your space?</h2>
+            <h2 className="text-3xl font-medium mb-4">Готовы преобразить своё пространство?</h2>
             <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-              Our collection of minimalist products are designed to bring elegance and functionality to your everyday life.
+              Наша коллекция минималистичных товаров создана для того, чтобы привнести элегантность и функциональность в вашу повседневную жизнь.
             </p>
             <Button asChild size="lg">
-              <Link to="/products">Shop All Products</Link>
+              <Link to="/products">Посмотреть все товары</Link>
             </Button>
           </div>
         </section>

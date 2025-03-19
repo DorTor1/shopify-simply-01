@@ -13,10 +13,10 @@ import Footer from '@/components/Footer';
 
 const formSchema = z.object({
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Пожалуйста, введите действительный адрес электронной почты.",
   }),
   password: z.string().min(6, {
-    message: "Password must be at least 6 characters.",
+    message: "Пароль должен содержать не менее 6 символов.",
   }),
 });
 
@@ -54,8 +54,8 @@ const LoginPage = () => {
       <main className="pt-20 min-h-screen flex items-center justify-center">
         <div className="max-w-md w-full mx-auto px-4 py-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-medium">Welcome Back</h1>
-            <p className="text-gray-600 mt-2">Sign in to your account</p>
+            <h1 className="text-3xl font-medium">Добро пожаловать</h1>
+            <p className="text-gray-600 mt-2">Войдите в свой аккаунт</p>
           </div>
           
           <Form {...form}>
@@ -65,9 +65,9 @@ const LoginPage = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Электронная почта</FormLabel>
                     <FormControl>
-                      <Input placeholder="you@example.com" {...field} />
+                      <Input placeholder="вы@пример.ру" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -80,9 +80,9 @@ const LoginPage = () => {
                 render={({ field }) => (
                   <FormItem>
                     <div className="flex items-center justify-between">
-                      <FormLabel>Password</FormLabel>
+                      <FormLabel>Пароль</FormLabel>
                       <Link to="/forgot-password" className="text-sm text-gray-600 hover:text-black">
-                        Forgot password?
+                        Забыли пароль?
                       </Link>
                     </div>
                     <FormControl>
@@ -94,16 +94,16 @@ const LoginPage = () => {
               />
               
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Signing in..." : "Sign In"}
+                {isLoading ? "Вход..." : "Войти"}
               </Button>
             </form>
           </Form>
           
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
-              Don't have an account?{" "}
+              Нет аккаунта?{" "}
               <Link to="/register" className="text-black font-medium hover:underline">
-                Sign up
+                Зарегистрироваться
               </Link>
             </p>
           </div>
@@ -114,7 +114,7 @@ const LoginPage = () => {
                 <div className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                <span className="px-2 bg-white text-gray-500">Или продолжить с</span>
               </div>
             </div>
             

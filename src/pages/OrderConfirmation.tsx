@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 
 const OrderConfirmation = () => {
   const orderNumber = Math.floor(100000 + Math.random() * 900000);
-  const orderDate = new Date().toLocaleDateString('en-US', {
+  const orderDate = new Date().toLocaleDateString('ru-RU', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -23,9 +23,9 @@ const OrderConfirmation = () => {
             <div className="inline-flex h-24 w-24 items-center justify-center rounded-full bg-green-100 mb-6">
               <CheckCircle className="h-16 w-16 text-green-600" />
             </div>
-            <h1 className="text-3xl font-medium mb-2">Order Confirmed!</h1>
+            <h1 className="text-3xl font-medium mb-2">Заказ подтвержден!</h1>
             <p className="text-gray-600">
-              Thank you for your purchase! Your order has been received.
+              Спасибо за покупку! Ваш заказ принят.
             </p>
           </div>
           
@@ -33,33 +33,33 @@ const OrderConfirmation = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h2 className="text-sm font-medium uppercase tracking-wider text-gray-500 mb-2">
-                  Order Information
+                  Информация о заказе
                 </h2>
                 <p className="text-sm mb-1">
-                  <span className="font-medium">Order Number:</span> #{orderNumber}
+                  <span className="font-medium">Номер заказа:</span> #{orderNumber}
                 </p>
                 <p className="text-sm mb-1">
-                  <span className="font-medium">Date:</span> {orderDate}
+                  <span className="font-medium">Дата:</span> {orderDate}
                 </p>
                 <p className="text-sm mb-1">
-                  <span className="font-medium">Payment Method:</span> Credit Card
+                  <span className="font-medium">Способ оплаты:</span> Кредитная карта
                 </p>
                 <p className="text-sm">
-                  <span className="font-medium">Status:</span>{" "}
-                  <span className="text-green-600">Processing</span>
+                  <span className="font-medium">Статус:</span>{" "}
+                  <span className="text-green-600">В обработке</span>
                 </p>
               </div>
               
               <div>
                 <h2 className="text-sm font-medium uppercase tracking-wider text-gray-500 mb-2">
-                  Shipping Information
+                  Информация о доставке
                 </h2>
                 <p className="text-sm mb-1">
-                  <span className="font-medium">Delivery Method:</span> Standard Shipping
+                  <span className="font-medium">Способ доставки:</span> Стандартная доставка
                 </p>
                 <p className="text-sm mb-1">
-                  <span className="font-medium">Estimated Delivery:</span>{" "}
-                  {new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', {
+                  <span className="font-medium">Ожидаемая доставка:</span>{" "}
+                  {new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString('ru-RU', {
                     month: 'long',
                     day: 'numeric',
                     year: 'numeric',
@@ -70,7 +70,7 @@ const OrderConfirmation = () => {
           </div>
           
           <div className="bg-white rounded-lg p-6 shadow-sm mb-8">
-            <h2 className="text-lg font-medium mb-4">What Happens Next?</h2>
+            <h2 className="text-lg font-medium mb-4">Что будет дальше?</h2>
             <ol className="space-y-4">
               <li className="flex">
                 <div className="flex-shrink-0 mr-3">
@@ -79,9 +79,9 @@ const OrderConfirmation = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-base font-medium">Order Processing</h3>
+                  <h3 className="text-base font-medium">Обработка заказа</h3>
                   <p className="text-sm text-gray-600">
-                    Your order is now being processed. You'll receive an email confirmation shortly.
+                    Ваш заказ сейчас обрабатывается. Вскоре вы получите подтверждение по электронной почте.
                   </p>
                 </div>
               </li>
@@ -93,9 +93,9 @@ const OrderConfirmation = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-base font-medium">Order Shipment</h3>
+                  <h3 className="text-base font-medium">Отправка заказа</h3>
                   <p className="text-sm text-gray-600">
-                    Once your order is ready, we'll ship it to you and send a shipping confirmation email with tracking information.
+                    Как только ваш заказ будет готов, мы отправим его вам и отправим подтверждение по электронной почте с информацией для отслеживания.
                   </p>
                 </div>
               </li>
@@ -107,9 +107,9 @@ const OrderConfirmation = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-base font-medium">Delivery</h3>
+                  <h3 className="text-base font-medium">Доставка</h3>
                   <p className="text-sm text-gray-600">
-                    Your order will be delivered to your shipping address. Sit tight!
+                    Ваш заказ будет доставлен по указанному адресу. Ожидайте!
                   </p>
                 </div>
               </li>
@@ -118,14 +118,14 @@ const OrderConfirmation = () => {
           
           <div className="text-center">
             <p className="text-gray-600 mb-4">
-              Have questions about your order? Check your order status in your account or contact our customer support.
+              Есть вопросы по вашему заказу? Проверьте статус заказа в своем аккаунте или свяжитесь с нашей службой поддержки.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild>
-                <Link to="/products">Continue Shopping</Link>
+                <Link to="/products">Продолжить покупки</Link>
               </Button>
               <Button asChild variant="outline">
-                <Link to="/account">View My Account</Link>
+                <Link to="/account">Мой аккаунт</Link>
               </Button>
             </div>
           </div>

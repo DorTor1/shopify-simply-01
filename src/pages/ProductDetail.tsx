@@ -27,10 +27,10 @@ const ProductDetail = () => {
         <main className="pt-20 min-h-screen">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="text-center py-12">
-              <h1 className="text-2xl font-medium mb-4">Product Not Found</h1>
-              <p className="mb-6">The product you're looking for doesn't exist or has been removed.</p>
+              <h1 className="text-2xl font-medium mb-4">Товар не найден</h1>
+              <p className="mb-6">Товар, который вы ищете, не существует или был удален.</p>
               <Button asChild>
-                <Link to="/products">Back to Products</Link>
+                <Link to="/products">Назад к товарам</Link>
               </Button>
             </div>
           </div>
@@ -77,13 +77,13 @@ const ProductDetail = () => {
             <ol className="flex items-center space-x-2 text-sm">
               <li>
                 <Link to="/" className="text-gray-500 hover:text-gray-700">
-                  Home
+                  Главная
                 </Link>
               </li>
               <li className="text-gray-500">/</li>
               <li>
                 <Link to="/products" className="text-gray-500 hover:text-gray-700">
-                  Products
+                  Товары
                 </Link>
               </li>
               <li className="text-gray-500">/</li>
@@ -96,7 +96,7 @@ const ProductDetail = () => {
             <Button variant="outline" size="sm" asChild>
               <Link to="/products" className="inline-flex items-center">
                 <ArrowLeft className="h-4 w-4 mr-1" />
-                Back to Products
+                Назад к товарам
               </Link>
             </Button>
           </div>
@@ -129,7 +129,7 @@ const ProductDetail = () => {
                   ))}
                 </div>
                 <span className="text-sm text-gray-600">
-                  {product.rating.toFixed(1)} ({product.reviews.length} reviews)
+                  {product.rating.toFixed(1)} ({product.reviews.length} {product.reviews.length === 1 ? 'отзыв' : product.reviews.length >= 2 && product.reviews.length <= 4 ? 'отзыва' : 'отзывов'})
                 </span>
               </div>
               
@@ -140,18 +140,18 @@ const ProductDetail = () => {
               </div>
               
               <div className="mb-6">
-                <p className="text-sm text-gray-500 mb-2">Category: <span className="capitalize">{product.category}</span></p>
+                <p className="text-sm text-gray-500 mb-2">Категория: <span className="capitalize">{product.category}</span></p>
                 <p className="text-sm text-gray-500">
-                  Availability: 
+                  Наличие: 
                   <span className={product.stock > 0 ? "text-green-600 ml-1" : "text-red-600 ml-1"}>
-                    {product.stock > 0 ? `In Stock (${product.stock} available)` : 'Out of Stock'}
+                    {product.stock > 0 ? `В наличии (${product.stock} доступно)` : 'Нет в наличии'}
                   </span>
                 </p>
               </div>
               
               {/* Quantity selector */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">Quantity</label>
+                <label className="block text-sm font-medium mb-2">Количество</label>
                 <div className="flex items-center">
                   <Button
                     variant="outline"
@@ -183,11 +183,11 @@ const ProductDetail = () => {
                   disabled={product.stock === 0}
                 >
                   <ShoppingCart className="h-5 w-5 mr-2" />
-                  Add to Cart
+                  Добавить в корзину
                 </Button>
                 <Button variant="outline" className="flex-1">
                   <Heart className="h-5 w-5 mr-2" />
-                  Add to Wishlist
+                  Добавить в избранное
                 </Button>
               </div>
             </div>
@@ -203,7 +203,7 @@ const ProductDetail = () => {
           {/* Recommended products */}
           {recommendedProducts.length > 0 && (
             <section className="mt-16">
-              <h2 className="text-2xl font-medium mb-6">You May Also Like</h2>
+              <h2 className="text-2xl font-medium mb-6">Вам также может понравиться</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {recommendedProducts.map(product => (
                   <ProductCard key={product.id} product={product} />

@@ -10,18 +10,18 @@ interface ProductSortProps {
 const ProductSort: React.FC<ProductSortProps> = ({ onSort, currentSort }) => {
   return (
     <div className="flex items-center space-x-2">
-      <span className="text-sm font-medium">Sort by:</span>
+      <span className="text-sm font-medium">Сортировать по:</span>
       <Select defaultValue={currentSort} onValueChange={onSort}>
         <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Sort order" />
+          <SelectValue placeholder="Порядок сортировки" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="featured">Featured</SelectItem>
-          <SelectItem value="price-asc">Price: Low to High</SelectItem>
-          <SelectItem value="price-desc">Price: High to Low</SelectItem>
-          <SelectItem value="rating-desc">Highest Rated</SelectItem>
-          <SelectItem value="name-asc">Name: A to Z</SelectItem>
-          <SelectItem value="name-desc">Name: Z to A</SelectItem>
+          <SelectItem value="featured">Рекомендуемые</SelectItem>
+          <SelectItem value="price-asc">Цена: от низкой к высокой</SelectItem>
+          <SelectItem value="price-desc">Цена: от высокой к низкой</SelectItem>
+          <SelectItem value="rating-desc">Самый высокий рейтинг</SelectItem>
+          <SelectItem value="name-asc">Название: от А до Я</SelectItem>
+          <SelectItem value="name-desc">Название: от Я до А</SelectItem>
         </SelectContent>
       </Select>
     </div>
