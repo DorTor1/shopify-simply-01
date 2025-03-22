@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SearchIcon, ShoppingCartIcon, UserIcon, MenuIcon, XIcon } from 'lucide-react';
@@ -31,19 +30,19 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="font-bold text-xl tracking-tight">
-            MinimalStore
+            МинималМагазин
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             <Link to="/" className="text-gray-700 hover:text-black transition-colors">
-              Home
+              Главная
             </Link>
             <Link to="/products" className="text-gray-700 hover:text-black transition-colors">
-              Products
+              Товары
             </Link>
             <Link to="/about" className="text-gray-700 hover:text-black transition-colors">
-              About
+              О нас
             </Link>
           </nav>
 
@@ -68,16 +67,16 @@ const Header: React.FC = () => {
                 </Button>
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <Link to="/account" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Account
+                    Аккаунт
                   </Link>
                   <Link to="/orders" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Orders
+                    Заказы
                   </Link>
                   <button 
                     onClick={logout}
                     className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
-                    Logout
+                    Выйти
                   </button>
                 </div>
               </div>
@@ -85,7 +84,7 @@ const Header: React.FC = () => {
               <Link to="/login">
                 <Button variant="ghost" className="p-0">
                   <UserIcon className="h-5 w-5 mr-1" />
-                  <span className="hidden sm:inline">Login</span>
+                  <span className="hidden sm:inline">Войти</span>
                 </Button>
               </Link>
             )}
@@ -114,21 +113,21 @@ const Header: React.FC = () => {
               className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Home
+              Главная
             </Link>
             <Link
               to="/products"
               className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Products
+              Товары
             </Link>
             <Link
               to="/about"
               className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              About
+              О нас
             </Link>
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ShoppingCart, Heart } from 'lucide-react';
@@ -20,7 +19,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, featured = false }) 
     <div 
       className={cn(
         "group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition-all duration-300 hover:shadow-md",
-        featured && "md:col-span-2"
+        featured && "md:col-span-2",
+        product.stock <= 0 && "opacity-70"
       )}
     >
       <div className="relative aspect-square overflow-hidden bg-gray-100">
@@ -41,9 +41,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, featured = false }) 
             }}
           >
             <Heart className="h-4 w-4" />
-            <span className="sr-only">Add to Wishlist</span>
+            <span className="sr-only">Добавить в избранное</span>
           </Button>
         </div>
+        {product.stock <= 0 && (
+          <div className="absolute inset-0 bg-white/60 flex items-center justify-center">
+            <p className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
+              Нет в наличии
+            </p>
+          </div>
+        )}
       </div>
       
       <div className="flex flex-grow flex-col space-y-2 p-4">
@@ -66,7 +73,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, featured = false }) 
             ))}
           </div>
           <span className="ml-1 text-gray-500">
-            ({product.reviews.length})
+            ({product.reviews.length} {product.reviews.length === 1 ? 'отзыв' : product.reviews.length >= 2 && product.reviews.length <= 4 ? 'отзыва' : 'отзывов'})
           </span>
         </div>
         
@@ -81,9 +88,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, featured = false }) 
               e.stopPropagation();
               addToCart(product);
             }}
+            disabled={product.stock <= 0}
           >
             <ShoppingCart className="h-4 w-4 mr-1" />
-            <span className="sr-only md:not-sr-only md:inline-block">Add</span>
+            <span className="sr-only md:not-sr-only md:inline-block">Добавить</span>
           </Button>
         </div>
       </div>

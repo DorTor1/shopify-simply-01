@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ShoppingCart, Heart, Star, ArrowLeft } from 'lucide-react';
@@ -140,7 +139,14 @@ const ProductDetail = () => {
               </div>
               
               <div className="mb-6">
-                <p className="text-sm text-gray-500 mb-2">Категория: <span className="capitalize">{product.category}</span></p>
+                <p className="text-sm text-gray-500 mb-2">Категория: <span className="capitalize">
+                  {product.category === 'electronics' && 'Электроника'}
+                  {product.category === 'furniture' && 'Мебель'}
+                  {product.category === 'lighting' && 'Освещение'}
+                  {product.category === 'home decor' && 'Декор для дома'}
+                  {product.category === 'kitchen' && 'Кухня'}
+                  {!['electronics', 'furniture', 'lighting', 'home decor', 'kitchen'].includes(product.category) && product.category}
+                </span></p>
                 <p className="text-sm text-gray-500">
                   Наличие: 
                   <span className={product.stock > 0 ? "text-green-600 ml-1" : "text-red-600 ml-1"}>

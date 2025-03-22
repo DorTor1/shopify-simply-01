@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
@@ -7,6 +6,15 @@ import { products } from '@/data/products';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FeaturedProducts from '@/components/FeaturedProducts';
+
+// Константа с URL изображений для категорий
+const CATEGORY_IMAGES = {
+  'electronics': 'https://images.unsplash.com/photo-1498049794561-7780e7231661?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'furniture': 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=600&fit=crop&q=80',
+  'lighting': 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=600&fit=crop&q=80',
+  'home decor': 'https://images.unsplash.com/photo-1634712282287-14ed57b9cc89?w=600&h=600&fit=crop&q=80',
+  'kitchen': 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&h=600&fit=crop&q=80'
+};
 
 const Index = () => {
   const featuredProducts = products.filter(product => product.featured);
@@ -21,7 +29,7 @@ const Index = () => {
           <div className="absolute inset-0 z-0 overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
-              alt="Hero background"
+              alt="Фоновое изображение"
               className="object-cover object-center w-full h-full"
             />
             <div className="absolute inset-0 bg-black/40"></div>
@@ -38,7 +46,7 @@ const Index = () => {
               <Button asChild size="lg" className="bg-white text-black hover:bg-gray-100">
                 <Link to="/products">Купить сейчас</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button asChild size="lg" className="bg-white text-black hover:bg-gray-100">
                 <Link to="/about">Узнать больше</Link>
               </Button>
             </div>
@@ -62,7 +70,7 @@ const Index = () => {
                   className="group relative overflow-hidden rounded-lg aspect-square bg-gray-100 transition-transform hover:scale-[1.02]"
                 >
                   <img
-                    src={`https://source.unsplash.com/random/600x600?${category.key}`}
+                    src={CATEGORY_IMAGES[category.key]}
                     alt={category.name}
                     className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                   />

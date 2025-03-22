@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { X, Plus, Minus } from 'lucide-react';
@@ -74,7 +73,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
             onClick={() => removeFromCart(product.id)}
           >
             <X className="h-4 w-4 mr-1" />
-            Remove
+            Удалить
           </Button>
         </div>
       </div>

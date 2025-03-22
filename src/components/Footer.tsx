@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,89 +7,89 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider">Shop</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider">Магазин</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/products" className="text-sm text-gray-600 hover:text-black transition-colors">
-                  All Products
+                  Все товары
                 </Link>
               </li>
               <li>
                 <Link to="/products?category=electronics" className="text-sm text-gray-600 hover:text-black transition-colors">
-                  Electronics
+                  Электроника
                 </Link>
               </li>
               <li>
                 <Link to="/products?category=furniture" className="text-sm text-gray-600 hover:text-black transition-colors">
-                  Furniture
+                  Мебель
                 </Link>
               </li>
               <li>
                 <Link to="/products?category=home decor" className="text-sm text-gray-600 hover:text-black transition-colors">
-                  Home Decor
+                  Декор для дома
                 </Link>
               </li>
             </ul>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider">Support</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider">Поддержка</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/contact" className="text-sm text-gray-600 hover:text-black transition-colors">
-                  Contact Us
+                  Связаться с нами
                 </Link>
               </li>
               <li>
                 <Link to="/faq" className="text-sm text-gray-600 hover:text-black transition-colors">
-                  FAQs
+                  Частые вопросы
                 </Link>
               </li>
               <li>
                 <Link to="/shipping" className="text-sm text-gray-600 hover:text-black transition-colors">
-                  Shipping & Returns
+                  Доставка и возврат
                 </Link>
               </li>
             </ul>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider">Company</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider">Компания</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-sm text-gray-600 hover:text-black transition-colors">
-                  About Us
+                  О нас
                 </Link>
               </li>
               <li>
                 <Link to="/privacy" className="text-sm text-gray-600 hover:text-black transition-colors">
-                  Privacy Policy
+                  Политика конфиденциальности
                 </Link>
               </li>
               <li>
                 <Link to="/terms" className="text-sm text-gray-600 hover:text-black transition-colors">
-                  Terms of Service
+                  Условия использования
                 </Link>
               </li>
             </ul>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider">Subscribe</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider">Подписка</h3>
             <p className="text-sm text-gray-600">
-              Sign up for our newsletter to receive updates and exclusive offers.
+              Подпишитесь на нашу рассылку, чтобы получать обновления и эксклюзивные предложения.
             </p>
             <form className="mt-2 flex">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Введите ваш email"
                 className="px-4 py-2 w-full rounded-l border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"
               />
               <button
                 type="submit"
                 className="bg-black text-white px-4 py-2 rounded-r hover:bg-gray-800 transition-colors"
               >
-                Subscribe
+                Подписаться
               </button>
             </form>
           </div>
@@ -98,7 +97,7 @@ const Footer: React.FC = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} MinimalStore. All rights reserved.
+            &copy; {new Date().getFullYear()} МинималМагазин. Все права защищены.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-gray-500 hover:text-black">

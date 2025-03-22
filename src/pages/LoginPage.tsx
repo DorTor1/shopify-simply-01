@@ -67,7 +67,7 @@ const LoginPage = () => {
                   <FormItem>
                     <FormLabel>Электронная почта</FormLabel>
                     <FormControl>
-                      <Input placeholder="вы@пример.ру" {...field} />
+                      <Input placeholder="user@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

@@ -1,4 +1,3 @@
-
 export interface Product {
   id: number;
   name: string;
@@ -47,8 +46,8 @@ export interface CartItem {
 export const products: Product[] = [
   {
     id: 1,
-    name: "Minimal Desk Lamp",
-    description: "A sleek, adjustable desk lamp with warm lighting for your workspace.",
+    name: "Минималистичная настольная лампа",
+    description: "Стильная регулируемая настольная лампа с теплым освещением для вашего рабочего пространства.",
     price: 89.99,
     image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     category: "lighting",
@@ -57,17 +56,17 @@ export const products: Product[] = [
       {
         id: 1,
         userId: 2,
-        username: "Jane Smith",
+        username: "Яна Смирнова",
         rating: 5,
-        comment: "Perfect for my minimalist workspace. The light is warm and adjustable.",
+        comment: "Идеально подходит для моего минималистичного рабочего пространства. Свет теплый и регулируемый.",
         date: "2023-05-15"
       },
       {
         id: 2,
         userId: 3,
-        username: "Alex Johnson",
+        username: "Алексей Иванов",
         rating: 4,
-        comment: "Great quality, but I wish it had more brightness levels.",
+        comment: "Отличное качество, но хотелось бы больше уровней яркости.",
         date: "2023-06-02"
       }
     ],
@@ -76,19 +75,19 @@ export const products: Product[] = [
   },
   {
     id: 2,
-    name: "Ergonomic Office Chair",
-    description: "Designed for comfort during long work sessions with adjustable lumbar support.",
+    name: "Эргономичное офисное кресло",
+    description: "Разработано для комфорта во время длительной работы с регулируемой поддержкой поясницы.",
     price: 299.99,
-    image: "https://images.unsplash.com/photo-1505843490701-5be5d0b19d32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+    image: "https://dxstore.ru/wp-content/uploads/2023/03/ergonomichnoe-kompyuternoe-kreslo-eureka-norn-seryj-01.jpg",
     category: "furniture",
     rating: 4.9,
     reviews: [
       {
         id: 3,
         userId: 1,
-        username: "John Doe",
+        username: "Иван Петров",
         rating: 5,
-        comment: "Best investment for my home office. My back thanks me every day.",
+        comment: "Лучшее вложение для моего домашнего офиса. Моя спина благодарит меня каждый день.",
         date: "2023-04-23"
       }
     ],
@@ -97,27 +96,27 @@ export const products: Product[] = [
   },
   {
     id: 3,
-    name: "Wireless Earbuds",
-    description: "High-quality sound with noise cancellation and 24-hour battery life.",
+    name: "Беспроводные наушники",
+    description: "Высококачественный звук с шумоподавлением и 24-часовым временем автономной работы.",
     price: 149.99,
     image: "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     category: "electronics",
-    rating: 4.5,
+    rating: 2,
     reviews: [
       {
         id: 4,
         userId: 4,
-        username: "Emily Chen",
-        rating: 4,
-        comment: "Great sound quality, but they could fit better.",
+        username: "Дмитрий Якушин",
+        rating: 2,
+        comment: "Отличное качество звука, но они могли бы лучше подойти для моего уха.",
         date: "2023-07-10"
       },
       {
         id: 5,
         userId: 5,
-        username: "Michael Brown",
-        rating: 5,
-        comment: "Amazing noise cancellation! Perfect for my commute.",
+        username: "Александр Петров",
+        rating: 2,
+        comment: "Отличное шумоподавление! Идеально для моего поездки.",
         date: "2023-07-05"
       }
     ],
@@ -126,8 +125,8 @@ export const products: Product[] = [
   },
   {
     id: 4,
-    name: "Minimalist Wall Clock",
-    description: "Simple, elegant wall clock with silent movement.",
+    name: "Минималистичные настенные часы",
+    description: "Простой, элегантный настенные часы с бесшумным движением.",
     price: 59.99,
     image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     category: "home decor",
@@ -136,9 +135,9 @@ export const products: Product[] = [
       {
         id: 6,
         userId: 2,
-        username: "Jane Smith",
+        username: "Елена Иванова",
         rating: 4,
-        comment: "Looks great on my wall. Very minimalist and sleek.",
+        comment: "Выглядит великолепно на моей стене. Очень минималистично и стильно.",
         date: "2023-06-18"
       }
     ],
@@ -147,19 +146,19 @@ export const products: Product[] = [
   },
   {
     id: 5,
-    name: "Smart Home Hub",
-    description: "Control all your smart devices from one central hub with voice commands.",
+    name: "Умный домашний центр",
+    description: "Управление всеми вашими умными устройствами из одного центра с голосовыми командами.",
     price: 199.99,
-    image: "https://images.unsplash.com/photo-1558002038-1055e2ffad41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1621274147744-cfb5694bb233?q=80&w=2060&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     category: "electronics",
     rating: 4.8,
     reviews: [
       {
         id: 7,
         userId: 3,
-        username: "Alex Johnson",
+        username: "Александр Петров",
         rating: 5,
-        comment: "Integrated perfectly with all my devices. Setup was a breeze.",
+        comment: "Интегрировался идеально со всеми моими устройствами. Настройка была легкой.",
         date: "2023-05-30"
       }
     ],
@@ -168,27 +167,27 @@ export const products: Product[] = [
   },
   {
     id: 6,
-    name: "Ceramic Coffee Mug Set",
-    description: "Set of 4 handcrafted ceramic mugs in minimalist design.",
+    name: "Керамический кофейный набор",
+    description: "Набор из 4 ручной работы керамических чашек в минималистичном дизайне.",
     price: 49.99,
-    image: "https://images.unsplash.com/photo-1530373239006-a52d8c0bc1b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+    image: "https://plus.unsplash.com/premium_photo-1714675739730-9d1f46b775c7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     category: "kitchen",
     rating: 4.6,
     reviews: [
       {
         id: 8,
         userId: 5,
-        username: "Michael Brown",
+        username: "Александр Петров",
         rating: 5,
-        comment: "Beautiful mugs! They keep my coffee warm for much longer than expected.",
+        comment: "Красивые чашки! Они сохраняют мой кофе теплым намного дольше, чем я ожидал.",
         date: "2023-07-12"
       },
       {
         id: 9,
         userId: 1,
-        username: "John Doe",
+        username: "Иван Петров",
         rating: 4,
-        comment: "Great quality but slightly smaller than I expected.",
+        comment: "Отличное качество, но немного меньше, чем я ожидал.",
         date: "2023-07-08"
       }
     ],
@@ -197,8 +196,8 @@ export const products: Product[] = [
   },
   {
     id: 7,
-    name: "Portable Bluetooth Speaker",
-    description: "Waterproof, rugged design with 360° sound and 20-hour battery life.",
+    name: "Портативная Bluetooth-колонка",
+    description: "Водонепроницаемый, прочный дизайн с 360° звуком и 20-часовым временем автономной работы.",
     price: 129.99,
     image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     category: "electronics",
@@ -207,9 +206,9 @@ export const products: Product[] = [
       {
         id: 10,
         userId: 4,
-        username: "Emily Chen",
+        username: "Дмитрий Якушин",
         rating: 4,
-        comment: "Great sound for its size. Battery life is impressive.",
+        comment: "Отличный звук для своего размера. Время автономной работы впечатляет.",
         date: "2023-07-03"
       }
     ],
@@ -218,8 +217,8 @@ export const products: Product[] = [
   },
   {
     id: 8,
-    name: "Wool Throw Blanket",
-    description: "Soft, cozy blanket made from 100% merino wool.",
+    name: "Шерстяная покрывало",
+    description: "Мягкое, теплое покрывало из 100% шерсти.",
     price: 89.99,
     image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     category: "home decor",
@@ -228,9 +227,9 @@ export const products: Product[] = [
       {
         id: 11,
         userId: 2,
-        username: "Jane Smith",
+        username: "Елена Иванова",
         rating: 5,
-        comment: "So soft and warm! Perfect for chilly evenings.",
+        comment: "Очень мягкое и теплое! Идеально для холодных вечеров.",
         date: "2023-06-25"
       }
     ],
@@ -245,14 +244,14 @@ export const users: User[] = [
     id: 1,
     email: "john@example.com",
     password: "password123",
-    name: "John Doe",
+    name: "Иван Петров",
     orders: []
   },
   {
     id: 2,
     email: "jane@example.com",
     password: "password123",
-    name: "Jane Smith",
+    name: "Елена Иванова",
     orders: []
   }
 ];

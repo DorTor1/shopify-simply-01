@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { products } from '@/data/products';
@@ -9,10 +8,20 @@ import ProductSort from '@/components/ProductSort';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+interface FilterState {
+  category?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  minRating?: number;
+}
+
 const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [sortOrder, setSortOrder] = useState('featured');
+  
+  // Локальное состояние для фильтров (дублирует URL-параметры)
+  const [activeFilters, setActiveFilters] = useState<FilterState>({});
   
   // Get max price for filter slider
   const maxPrice = Math.max(...products.map(p => p.price));
@@ -20,33 +29,73 @@ const ProductsPage = () => {
   // Extract filters from URL search params
   const categoryParam = searchParams.get('category');
   const searchParam = searchParams.get('search');
+  const minPriceParam = searchParams.get('minPrice');
+  const maxPriceParam = searchParams.get('maxPrice');
+  const minRatingParam = searchParams.get('minRating');
   
+  // Применяем фильтры при изменении URL-параметров или локальных фильтров
   useEffect(() => {
     let filters = {
-      category: categoryParam || undefined,
+      category: categoryParam || activeFilters.category || undefined,
       search: searchParam || undefined,
+      minPrice: minPriceParam ? parseFloat(minPriceParam) : activeFilters.minPrice,
+      maxPrice: maxPriceParam ? parseFloat(maxPriceParam) : activeFilters.maxPrice,
+      rating: minRatingParam ? parseInt(minRatingParam) : activeFilters.minRating,
     };
     
-    // Apply filters
+    console.log('Применяемые фильтры из URL и локального состояния:', filters);
+    
+    // Применение фильтров
     let result = filterProducts(products, filters);
     
-    // Apply sorting
+    // Применение сортировки
     result = sortProducts(result, sortOrder);
     
+    console.log('Отфильтровано товаров:', result.length);
+    
     setFilteredProducts(result);
-  }, [categoryParam, searchParam, sortOrder]);
+  }, [categoryParam, searchParam, minPriceParam, maxPriceParam, minRatingParam, sortOrder, activeFilters]);
   
   const handleFilter = (filters: any) => {
+    console.log('Получены фильтры:', filters);
+    
+    // Сохраняем фильтры в локальном состоянии
+    setActiveFilters(filters);
+    
     const newParams = new URLSearchParams(searchParams.toString());
     
-    // Update or remove category param
+    // Обновляем или удаляем параметр категории
     if (filters.category) {
       newParams.set('category', filters.category);
     } else {
       newParams.delete('category');
     }
     
-    // Update URL with new filters
+    // Обновляем или удаляем параметр минимальной цены
+    if (filters.minPrice !== undefined && filters.minPrice > 0) {
+      newParams.set('minPrice', filters.minPrice.toString());
+    } else {
+      newParams.delete('minPrice');
+    }
+    
+    // Обновляем или удаляем параметр максимальной цены
+    if (filters.maxPrice !== undefined && filters.maxPrice < maxPrice) {
+      newParams.set('maxPrice', filters.maxPrice.toString());
+    } else {
+      newParams.delete('maxPrice');
+    }
+    
+    // Обновляем или удаляем параметр минимального рейтинга
+    if (filters.minRating) {
+      newParams.set('minRating', filters.minRating.toString());
+    } else {
+      newParams.delete('minRating');
+    }
+    
+    // После обновления всех параметров
+    console.log('Новые параметры URL:', Object.fromEntries(newParams.entries()));
+    
+    // Обновляем URL с новыми параметрами фильтрации
     setSearchParams(newParams);
   };
   
@@ -62,7 +111,12 @@ const ProductsPage = () => {
           <div className="mb-8">
             <h1 className="text-3xl font-medium mb-2">
               {categoryParam 
-                ? `${categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1)} Товары`
+                ? `${categoryParam === 'electronics' ? 'Электроника' 
+                  : categoryParam === 'furniture' ? 'Мебель' 
+                  : categoryParam === 'lighting' ? 'Освещение' 
+                  : categoryParam === 'home decor' ? 'Декор для дома'
+                  : categoryParam === 'kitchen' ? 'Кухня'
+                  : categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1)}`
                 : 'Все товары'}
             </h1>
             <p className="text-gray-500">

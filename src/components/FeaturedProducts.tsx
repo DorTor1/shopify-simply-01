@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Product } from '@/data/products';
@@ -16,6 +15,11 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
   products,
   viewAllLink = '/products',
 }) => {
+  // Сортируем товары так, чтобы в наличии были первыми
+  const sortedProducts = [...products].sort((a, b) => 
+    b.stock > 0 ? 1 : a.stock > 0 ? -1 : 0
+  );
+
   return (
     <section className="py-12">
       <div className="container px-4 md:px-6">
@@ -32,7 +36,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
           )}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product, index) => (
+          {sortedProducts.map((product, index) => (
             <ProductCard
               key={product.id}
               product={product}

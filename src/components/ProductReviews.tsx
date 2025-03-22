@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Star, StarIcon } from 'lucide-react';
 import { Review } from '@/data/products';
@@ -39,7 +38,7 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews, productId, onA
 
   return (
     <div className="mt-10">
-      <h2 className="text-2xl font-medium mb-6">Customer Reviews</h2>
+      <h2 className="text-2xl font-medium mb-6">Отзывы покупателей</h2>
       
       {/* Review summary */}
       {reviews.length > 0 && (
@@ -61,7 +60,7 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews, productId, onA
             <span className="text-lg font-medium">
               {(reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length).toFixed(1)}
             </span>
-            <span className="text-gray-500 ml-2">({reviews.length} reviews)</span>
+            <span className="text-gray-500 ml-2">({reviews.length} {reviews.length === 1 ? 'отзыв' : reviews.length >= 2 && reviews.length <= 4 ? 'отзыва' : 'отзывов'})</span>
           </div>
         </div>
       )}
@@ -69,10 +68,10 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews, productId, onA
       {/* Add review */}
       {isAuthenticated ? (
         <div className="border rounded-lg p-4 mb-8">
-          <h3 className="text-lg font-medium mb-3">Write a Review</h3>
+          <h3 className="text-lg font-medium mb-3">Написать отзыв</h3>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-2">Rating</label>
+              <label className="block text-sm font-medium mb-2">Рейтинг</label>
               <div className="flex">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
@@ -97,27 +96,27 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews, productId, onA
             </div>
             <div className="mb-4">
               <label htmlFor="comment" className="block text-sm font-medium mb-2">
-                Comment
+                Комментарий
               </label>
               <Textarea
                 id="comment"
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="Share your thoughts about this product..."
+                placeholder="Поделитесь своими впечатлениями о товаре..."
                 rows={4}
                 required
               />
             </div>
             <Button type="submit" className="w-full sm:w-auto">
-              Submit Review
+              Отправить отзыв
             </Button>
           </form>
         </div>
       ) : (
         <div className="bg-gray-50 rounded-lg p-4 mb-8 text-center">
-          <p className="mb-2">Please sign in to write a review</p>
+          <p className="mb-2">Пожалуйста, войдите в систему, чтобы написать отзыв</p>
           <Button variant="outline" asChild>
-            <a href="/login">Sign In</a>
+            <a href="/login">Войти</a>
           </Button>
         </div>
       )}
@@ -149,7 +148,7 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews, productId, onA
           ))}
         </div>
       ) : (
-        <p className="text-gray-500">No reviews yet. Be the first to review this product!</p>
+        <p className="text-gray-500">Пока нет отзывов. Будьте первым, кто оставит отзыв о товаре!</p>
       )}
     </div>
   );

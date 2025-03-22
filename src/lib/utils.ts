@@ -1,4 +1,3 @@
-
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { toast } from "sonner"
@@ -7,13 +6,26 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+// Курс конвертации USD в RUB
+export const USD_TO_RUB_RATE = 90;
+
+// Конвертация из долларов в рубли
+export function usdToRub(usdAmount: number): number {
+  return usdAmount * USD_TO_RUB_RATE;
+}
+
+// Конвертация из рублей в доллары
+export function rubToUsd(rubAmount: number): number {
+  return rubAmount / USD_TO_RUB_RATE;
+}
+
 // Format price to currency
 export function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('ru-RU', {
     style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2
-  }).format(amount);
+    currency: 'RUB',
+    minimumFractionDigits: 0
+  }).format(usdToRub(amount));
 }
 
 // Generate a random ID (used for cart items, orders, etc.)
@@ -23,7 +35,7 @@ export function generateId(): number {
 
 // Format date
 export function formatDate(date: string): string {
-  return new Date(date).toLocaleDateString('en-US', {
+  return new Date(date).toLocaleDateString('ru-Ru', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
@@ -56,13 +68,22 @@ export function filterProducts(
     search?: string;
   }
 ) {
+  console.log('Фильтрация товаров с параметрами:', { category, minPrice, maxPrice, rating, search });
+  
   return products.filter(product => {
     // Filter by category
     if (category && product.category !== category) return false;
     
-    // Filter by price range
-    if (minPrice !== undefined && product.price < minPrice) return false;
-    if (maxPrice !== undefined && product.price > maxPrice) return false;
+    // Filter by price range with epsilon to handle floating point errors
+    if (minPrice !== undefined) {
+      const minPriceValue = Math.floor(minPrice * 100) / 100; // Округляем до 2 знаков после запятой
+      if (product.price < minPriceValue) return false;
+    }
+    
+    if (maxPrice !== undefined) {
+      const maxPriceValue = Math.ceil(maxPrice * 100) / 100; // Округляем до 2 знаков после запятой
+      if (product.price > maxPriceValue) return false;
+    }
     
     // Filter by minimum rating
     if (rating !== undefined && product.rating < rating) return false;
